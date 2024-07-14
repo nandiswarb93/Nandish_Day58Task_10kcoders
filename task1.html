@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Tasks</title>
+</head>
+<body>
+    <center>
+        <h1>Form Validation Tasks</h1>
+
+        <label for="email">Enter Email</label>
+        <input type="email" name="email" id="email"><br>
+
+        <label for="password">Enter Password</label>
+        <input type="password" name="password" id="password"><br>
+
+        <label for="repassword">Re-enter Password</label>
+        <input type="password" name="repassword" id="repassword"><br>
+
+        <label for="number">Enter Number (10 digits)</label>
+        <input type="text" name="number" id="number"><br>
+
+        <input type="button" value="Submit" id="submit">
+    </center>
+
+    <script>
+        let submitButton = document.getElementById("submit");
+
+        submitButton.addEventListener("click", function() {
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let repassword = document.getElementById("repassword").value.trim();
+            let number = document.getElementById("number").value.trim();
+
+            
+            if (email === "" || password === "" || repassword === "" || number === "") {
+                alert("Please fill in all fields.");
+            } else if (password !== repassword) {
+                alert("Passwords do not match.");
+            } else if (number.length !== 10 || isNaN(number)) {
+                alert("Number should be a 10-digit numeric value.");
+            } else {
+                alert("Form is valid and can be submitted.");
+
+            }
+        });
+    </script>
+   
+</body>
+</html>
